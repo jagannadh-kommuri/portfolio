@@ -1,6 +1,6 @@
-# Jagannadh K — The Series
+# Jagannadh K 
 
-Personal software engineering portfolio, customized from Sushmita Dasari’s Portfolio_series template: https://github.com/Sushmitadasari/Portfolio_series
+Personal software engineering portfolio
 
 ## Development
 
