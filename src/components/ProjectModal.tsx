@@ -91,19 +91,37 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               {project.logline}
             </motion.p>
 
-            {project.github && (
-              <motion.div variants={block} className="mt-6 flex flex-wrap gap-3">
-                <Magnetic>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    data-cursor="link"
-                    className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
-                  >
-                    GitHub ↗
-                  </a>
-                </Magnetic>
+            {(project.demo || project.github) && (
+              <motion.div variants={block} className="mt-6">
+                <div className="flex flex-wrap gap-3">
+                  {project.demo && (
+                    <Magnetic>
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noreferrer"
+                        data-cursor="link"
+                        className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
+                      >
+                        Live Workspace ↗
+                      </a>
+                    </Magnetic>
+                  )}
+                  {project.github && (
+                    <Magnetic>
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        data-cursor="link"
+                        className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
+                      >
+                        {project.githubLabel ?? 'GitHub'} ↗
+                      </a>
+                    </Magnetic>
+                  )}
+                </div>
+                {project.demo && <p className="mt-2 text-sm text-mist">The live workspace requires a password.</p>}
               </motion.div>
             )}
 

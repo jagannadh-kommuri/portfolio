@@ -1,6 +1,6 @@
 export type Palette = { from: string; via: string; to: string; accent: string };
 export type Metric = { value: string; label: string };
-export type Project = { id: string; title: string; year: string; genre: string; logline: string; stack: string[]; build: string[]; features: string[]; metrics: Metric[]; github?: string; palette: Palette; motif: 'shield' | 'flow' | 'tenants' };
+export type Project = { id: string; title: string; year: string; genre: string; logline: string; stack: string[]; build: string[]; features: string[]; metrics: Metric[]; github?: string; githubLabel?: string; demo?: string; palette: Palette; motif: 'shield' | 'flow' | 'tenants' };
 export type Achievement = { id: string; title: string; org: string; detail: string; laurel: string; link?: string };
 export type Certification = { issuer: string; name: string; link: string };
 export type Skill = { name: string; mono: string; note?: string };
@@ -83,36 +83,35 @@ export const experience = [
 export const projects: Project[] = [
   {
     "id": "enterprise-knowledge",
-    "title": "Enterprise Knowledge Assistant",
+    "title": "Atlas — Personal Knowledge Workspace",
     "year": "Featured project",
-    "genre": "Generative AI \u2022 RAG \u2022 Backend",
-    "logline": "Enterprise knowledge retrieval with grounded search, access controls, and observable AI workflows.",
+    "genre": "Document Search • Backend",
+    "logline": "Upload a PDF, ask a question, and open the citation to see the supporting excerpt and exact PDF page. Built with Python, FastAPI, and PostgreSQL, and deployed on Vercel.",
     "stack": [
       "Python",
-      "Azure OpenAI",
-      "Semantic Kernel",
-      "LangChain",
-      "Qdrant",
-      "Chroma"
+      "FastAPI",
+      "PostgreSQL",
+      "Vercel"
     ],
     "build": [
-      "Developed REST APIs and RAG workflows with authentication, retrieval validation, structured error handling, and monitoring for 500+ daily AI-assisted requests.",
-      "Designed embedding-based retrieval and vector search with Qdrant and Chroma, integrating prompt management, response validation, and observability."
+      "Built a document workspace that indexes uploaded PDFs and retrieves matching passages with source citations.",
+      "Added role-based document access and deployed the application on Vercel with PostgreSQL."
     ],
     "features": [
-      "Embedding-based retrieval and vector search",
-      "Authentication and access controls",
-      "Retrieval and response validation",
-      "Prompt management and token tracking",
-      "Logging and monitoring"
+      "PDF page citations and supporting excerpts",
+      "Document upload and search",
+      "Administrator and reader access",
+      "Extractive search in the live workspace"
     ],
     "metrics": [
       {
-        "value": "500+",
-        "label": "daily AI-assisted requests"
+        "value": "PDF",
+        "label": "page-level citations"
       }
     ],
-    "github": "https://github.com/jagannadh-kommuri/AI-Powered-Enterprise-Knowledge-Assistant-",
+    "github": "https://github.com/jagannadh-kommuri/enterprise-knowledge-assistant",
+    "githubLabel": "GitHub (private)",
+    "demo": "https://enterprise-knowledge-assistant-coral.vercel.app/",
     "palette": {
       "via": "#6e0d1d",
       "to": "#09070a",
@@ -168,10 +167,10 @@ export const projects: Project[] = [
 export const achievements: Achievement[] = [
   {
     "id": "ai",
-    "title": "500+ Daily Requests",
-    "org": "Enterprise AI",
-    "detail": "RAG workflows with retrieval validation, token tracking, monitoring, and access controls.",
-    "laurel": "AI in practice"
+    "title": "Page-Level Citations",
+    "org": "Atlas",
+    "detail": "Document search with access controls and links to supporting PDF excerpts.",
+    "laurel": "Document search"
   },
   {
     "id": "verizon",
@@ -429,7 +428,7 @@ export const skillEvidence: Record<string, string[]> = {
     "Verizon and Infosys backend services"
   ],
   "Python": [
-    "Enterprise Knowledge Assistant"
+    "Atlas — Personal Knowledge Workspace"
   ],
   "React": [
     "Verizon customer data workflows"
@@ -438,10 +437,10 @@ export const skillEvidence: Record<string, string[]> = {
     "Verizon reusable UI components"
   ],
   "Azure OpenAI": [
-    "Enterprise Knowledge Assistant"
+    "Verizon knowledge retrieval workflows"
   ],
   "RAG": [
-    "500+ daily AI-assisted requests"
+    "Verizon knowledge retrieval workflows"
   ],
   "Docker": [
     "Cloud application deployments"
@@ -556,17 +555,17 @@ export const seasons: Season[] = [
     "number": 3,
     "title": "Selected Engineering Work",
     "period": "Project collection",
-    "synopsis": "Two projects combining backend engineering, cloud architecture, and generative AI.",
+    "synopsis": "Two projects covering document search, backend engineering, and cloud architecture.",
     "episodes": [
       {
         "code": "S03 E01",
-        "title": "Enterprise Knowledge Assistant",
-        "description": "Enterprise knowledge retrieval with grounded search, access controls, and observable AI workflows.",
+        "title": "Atlas — Personal Knowledge Workspace",
+        "description": "Upload a PDF, ask a question, and open the citation to see the supporting excerpt and exact PDF page. Built with Python, FastAPI, and PostgreSQL, and deployed on Vercel.",
         "tags": [
           "Python",
-          "Azure OpenAI",
-          "Semantic Kernel",
-          "LangChain"
+          "FastAPI",
+          "PostgreSQL",
+          "Vercel"
         ],
         "runtime": "Featured project",
         "palette": {
@@ -610,9 +609,9 @@ export const topPicks: TopPick[] = [
     }
   },
   {
-    "label": "Enterprise AI",
-    "title": "Knowledge Assistant",
-    "detail": "500+ daily AI-assisted requests",
+    "label": "Personal project",
+    "title": "Atlas",
+    "detail": "Document search with PDF page citations",
     "palette": {
       "from": "#04121f",
       "via": "#0f4c6e",
@@ -733,11 +732,11 @@ export const introSlides: IntroSlide[] = [
     ]
   },
   {
-    "kicker": "Enterprise AI",
-    "title": "Knowledge into answers",
+    "kicker": "Personal project",
+    "title": "Atlas",
     "lines": [
-      "RAG and vector search supporting 500+ daily AI-assisted requests.",
-      "Retrieval validation, token tracking, monitoring, and access controls."
+      "Upload documents and search them by asking a question.",
+      "Open the citation to verify the excerpt and PDF page."
     ]
   },
   {
