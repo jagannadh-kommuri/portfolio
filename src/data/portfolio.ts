@@ -110,7 +110,7 @@ export const projects: Project[] = [
       }
     ],
     "github": "https://github.com/jagannadh-kommuri/enterprise-knowledge-assistant",
-    "githubLabel": "GitHub (private)",
+    "githubLabel": "GitHub",
     "demo": "https://enterprise-knowledge-assistant-coral.vercel.app/",
     "palette": {
       "via": "#6e0d1d",
